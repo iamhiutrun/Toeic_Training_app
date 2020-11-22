@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts_improved/flutter_tts_improved.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/constants/theme_data.dart';
+import 'package:quiz_app/screens/home_page.dart';
 
 class GetsJson extends StatelessWidget {
   final String category;
@@ -96,9 +97,9 @@ class _CertainVocabPageState extends State<CertainVocabPage> {
                       children: [
                         Text(widget.myData[index]['word'],
                             style: GoogleFonts.openSans(
-                                fontSize: 22,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black)),
+                                color: Colors.blue)),
                         Text(widget.myData[index]['phonetics']),
                         SizedBox(
                           height: 20,
@@ -152,21 +153,46 @@ class _CertainVocabPageState extends State<CertainVocabPage> {
             SizedBox(
               height: 20,
             ),
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.green, borderRadius: BorderRadius.circular(15)),
-              child: FlatButton(
-                onPressed: () {
-                  nextVocab();
-                },
-                child: Text(
-                  'NEXT',
-                  style: GoogleFonts.openSans(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: CustomColor.textQuestion),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: FlatButton(
+                    onPressed: () {
+                      nextVocab();
+                    },
+                    child: Text(
+                      'NEXT',
+                      style: GoogleFonts.openSans(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: CustomColor.textQuestion),
+                    ),
+                  ),
                 ),
-              ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: FlatButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
+                    },
+                    child: Text(
+                      'HOME',
+                      style: GoogleFonts.openSans(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: CustomColor.textQuestion),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

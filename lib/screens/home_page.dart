@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
         if (title == 'TOEIC READING') {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => GetJson()));
-        } else if (title == 'VOCABULARY') {
+        } else if (title == 'TOEIC VOCABULARY') {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => VocaBularyPage()));
         }
@@ -29,7 +29,15 @@ class _HomePageState extends State<HomePage> {
           width: 150,
           child: Column(
             children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  "assets/$title.jpg",
+                  scale: 0.5,
+                ),
+              ),
               Text(title,
+                  textAlign: TextAlign.center,
                   style: GoogleFonts.openSans(
                       fontSize: 22,
                       fontWeight: FontWeight.normal,
@@ -64,9 +72,9 @@ class _HomePageState extends State<HomePage> {
                   crossAxisCount: 2,
                   children: [
                     customCard('TOEIC READING', ''),
-                    customCard('TOEIC LISTENING', ''),
-                    customCard('VOCABULARY', ''),
-                    customCard('REVISION', ''),
+                    //customCard('TOEIC LISTENING', ''),
+                    customCard('TOEIC VOCABULARY', ''),
+                    //customCard('REVISION', ''),
                   ],
                 )),
           ),

@@ -14,8 +14,15 @@ class ResultPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ClipRRect(
-            child: Image.asset("assets/result/good.jpg"),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ClipRRect(
+              child: Image.asset("assets/result/good.jpg"),
+              borderRadius: BorderRadius.circular(50),
+            ),
+          ),
+          SizedBox(
+            height: 20,
           ),
           Center(
             child: Text('Your Scored: $score',

@@ -41,6 +41,16 @@ class _QuizPageState extends State<QuizPage> {
   int index = 0;
   int mark = 0;
 
+  Map<String, Color> btnColor = {
+    "A": CustomColor.colortoshow,
+    "B": CustomColor.colortoshow,
+    "C": CustomColor.colortoshow,
+    "D": CustomColor.colortoshow,
+  };
+  Color colorToShow = CustomColor.colortoshow;
+  Color right = CustomColor.right;
+  Color wrong = CustomColor.wrong;
+
   void nextQuestion() {
     setState(() {
       if (index < widget.myData.length - 1) {
@@ -49,12 +59,15 @@ class _QuizPageState extends State<QuizPage> {
     });
   }
 
-  void checkAnswer(String key) {
-    if (key == widget.myData[index]['answer']) {
-      mark += 5;
-      Timer(Duration(microseconds: 1), nextQuestion);
-    } else
-      Timer(Duration(microseconds: 1), nextQuestion);
+  checkAnswer(String key) {
+    setState(() {
+      if (key == widget.myData[index]['answer']) {
+        mark += 5;
+        btnColor[key] = right;
+      } else
+        btnColor[key] = wrong;
+      return Timer(Duration(seconds: 2), nextQuestion);
+    });
   }
 
   Widget answer(String answer) {
@@ -64,7 +77,6 @@ class _QuizPageState extends State<QuizPage> {
         borderRadius: BorderRadius.circular(15),
         onTap: () {
           checkAnswer(answer);
-          print(index);
           if (index + 1 == widget.myData.length) {
             Navigator.push(
                 context,
@@ -76,7 +88,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10),
             width: double.infinity,
             decoration: BoxDecoration(
-              color: CustomColor.colortoshow,
+              color: btnColor[answer],
               borderRadius: BorderRadius.circular(15),
               border: Border.all(color: Colors.indigo, width: 4),
             ),
