@@ -1,0 +1,19 @@
+[
+         {
+            "word" : "ABIDE BY",
+            "meaning": "Tuân theo, làm theo",
+            "phonetics" : "/əˈbaɪd baɪ/",
+            "example": "Employees should abide by the corporate principles",
+            "exampleMeaning": "Công nhân phải tuân theo giám đốc"
+         },
+         {
+            "word" : "AGREE",
+            "meaning": "Đồng ý",
+            "phonetics" : "/əˈɡriː/",
+            "example": "I agree to apply this position.",
+            "exampleMeaning": "Tôi đồng ý ứng tuyển vị trí này"
+         },
+         {"word":"obligate","meaning":"﻿﻿(v): bắt buộc, ép buộc","phonetics":"﻿﻿/\u0027ɔbligeit/","example":"﻿﻿The contractor was obligated by the contract to work 40 hours a week.","exampleMeaning":"﻿﻿Nhà thầu buộc phải làm việc 40 tiếng mỗi tuần."},
+         {"word":"cancellation ","meaning":"(n): sự bãi bỏ, hủy bỏ","phonetics":"/,kænse\u0027leiʃn/","explain":" a decision to stop something that has already been arranged from happening","example":"The cancelation of her flight caused her problems for the rest of the week","exampleMeaning":"Việc hủy chuyến bay đã gây cho cô ấy nhiều vấn đề trong những ngày còn lại của tuần."},{"word":"determine ","meaning":"(v): quyết định, xác định, định rõ; quyết tâm, kiên quyết","phonetics":"/di\u0027tə:min/","explain":" to discover the facts about something","example":"After reading the contract, I was still unable to detemine if our company was liable for back wages.","exampleMeaning":"Sau khi đọc hợp đồng, tôi vẫn không thể biết được liệu rằng công ty của chúng tôi có phải chịu trách nhiệm hoàn trả lại lương không"},{"word":"engage ","meaning":"(v): (v)Tham gia, cam kết, (n)sự hứa hẹn, hứa hôn","phonetics":"/in\u0027geidʤ/","explain":" to become involved in, to participate","example":"He engaged us in a fascinating discussion about current business law","exampleMeaning":"Anh ấy cùng chúng tôi thảo luận sôi nổi về luật kinh doanh hiện hành"},{"word":"establish ","meaning":"(v): thiết lập, thành lập; xác minh, chứng minh, củng cố","phonetics":"/is\u0027tæbliʃ/","explain":" to start or create an organization, a system","example":"The merger of the two company established a powerful new corporation","exampleMeaning":"Sự liên kết giữa 2 công ty tạo nên một tập đoàn kinh tế hùng mạnh."},{"word":"party ","meaning":"(n): đảng, phái, đội, nhóm; người tham dự/tham gia; buổi liên hoan, buổi tiệc","phonetics":"/\u0027pɑ:ti/","explain":" one of the people or groups of people involved in a legal agreemen","example":"The parties agreed to settlement in their contract dispute.","exampleMeaning":"Các bên đã nhất trí đi đến một thỏa thuận trong hợp đồng gây tranh cãi của họ."},{"word":"provision ","meaning":"(n): sự dự liệu, dự trữ, dự phòng, cung cấp; điều khoản","phonetics":"/provision/","explain":" a condition or an arrangement in a legal document","example":"The father made provision for his children through his will.","exampleMeaning":"Người cha đã truyền lại di chúc cho những đứa con của mình."},{"word":"resolve ","meaning":"(v, n): (v) giải quyết, (n) sự kiên quyết / sự tin chắc","phonetics":"/ri\u0027zɔlv/","explain":" to find an acceptable solution to a problem","example":"The manager resolved to clean out all the files at the end of the week.","exampleMeaning":"Cuối tuần, người quản lý đã quyết định xóa sạch tất cả các dữ liệu"},{"word":"specific ","meaning":"(adj): riêng biệt, cụ thể, đặc trưng; rõ ràng, rành mạch","phonetics":"/spi\u0027sifik/","explain":" detailed abd exact","example":"The customer\u0027s specific complaint was not addressed in his e-mail.","exampleMeaning":"Khiếu nại cụ thể của khách hàng đã không được giải quyết trong Email gửi anh ấy."}
+]
+
