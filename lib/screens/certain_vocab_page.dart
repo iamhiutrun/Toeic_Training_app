@@ -4,6 +4,7 @@ import 'package:flutter_tts_improved/flutter_tts_improved.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/constants/theme_data.dart';
 import 'package:quiz_app/screens/home_page.dart';
+import 'package:quiz_app/screens/vocabulary_page.dart';
 
 class GetsJson extends StatelessWidget {
   final String category;
@@ -44,13 +45,32 @@ class _CertainVocabPageState extends State<CertainVocabPage> {
   FlutterTtsImproved flutterTtsImproved = FlutterTtsImproved();
   int index = 0;
   bool isActive = false;
+  String next = 'Next';
+  String previous = 'Previous';
+  previousVocab() {
+    if (index > 0) {
+      index = index - 1;
+      isActive = false;
+      setState(() {});
+    }
+    if (index == -1) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => VocaBularyPage()));
+    }
+  }
+
   nextVocab() {
-    setState(() {
-      if (index < widget.myData.length - 1) {
-        index = index + 1;
-        isActive = false;
-      }
-    });
+    if (index < widget.myData.length - 1) {
+      index = index + 1;
+      isActive = false;
+
+      setState(() {});
+    }
+    if (index == widget.myData.length) {
+      //index = 0;
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => VocaBularyPage()));
+    }
   }
 
   @override
@@ -159,14 +179,17 @@ class _CertainVocabPageState extends State<CertainVocabPage> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: index == 0 ? Colors.red : Colors.blue,
                       borderRadius: BorderRadius.circular(15)),
                   child: FlatButton(
                     onPressed: () {
-                      nextVocab();
+                      if (index == 0) {
+                        index = index - 1;
+                      }
+                      previousVocab();
                     },
                     child: Text(
-                      'NEXT',
+                      index == 0 ? 'Topic' : "Previous",
                       style: GoogleFonts.openSans(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -176,15 +199,19 @@ class _CertainVocabPageState extends State<CertainVocabPage> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: index == widget.myData.length - 1
+                          ? Colors.red
+                          : Colors.green,
                       borderRadius: BorderRadius.circular(15)),
                   child: FlatButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                      if (index == widget.myData.length - 1) {
+                        index = index + 1;
+                      }
+                      nextVocab();
                     },
                     child: Text(
-                      'HOME',
+                      index == widget.myData.length - 1 ? "Topic" : "Next",
                       style: GoogleFonts.openSans(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,

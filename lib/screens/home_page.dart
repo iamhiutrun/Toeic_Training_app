@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/constants/theme_data.dart';
+import 'package:quiz_app/screens/choose_test.dart';
 import 'package:quiz_app/screens/quiz_page.dart';
 import 'package:quiz_app/screens/vocabulary_page.dart';
 
@@ -15,7 +16,7 @@ class _HomePageState extends State<HomePage> {
       onTap: () {
         if (title == 'TOEIC READING') {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => GetJson()));
+              context, MaterialPageRoute(builder: (context) => ChooseTest()));
         } else if (title == 'TOEIC VOCABULARY') {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => VocaBularyPage()));

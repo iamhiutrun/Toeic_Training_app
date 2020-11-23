@@ -37,6 +37,7 @@ class _VocaBularyPageState extends State<VocaBularyPage> {
             ),
             Expanded(
               child: Text(title,
+                  textAlign: TextAlign.center,
                   style: GoogleFonts.openSans(
                       fontWeight: FontWeight.bold, color: Colors.white)),
             ),
@@ -51,37 +52,53 @@ class _VocaBularyPageState extends State<VocaBularyPage> {
     return Scaffold(
       backgroundColor: CustomColor.backgroundTest,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: GridView.count(
-            crossAxisCount: 3,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            children: [
-              vocabTopic("Contract", "contract"),
-              vocabTopic("Marketing", 'marketing'),
-              vocabTopic("Warranty", 'warranty'),
-              vocabTopic("Business\nPlanning", 'business'),
-              vocabTopic("Conferences", 'conference'),
-              vocabTopic("  Computer\nthe Internet", 'computer'),
-              vocabTopic("  Office \nTechnology", 'office'),
-              vocabTopic("  Office \nProcedure", 'procedure'),
-              vocabTopic("Electronics", 'electronic'),
-              vocabTopic("Correspondence", 'correspondence'),
-              vocabTopic("  Job Ads & \nRecruitment", 'recruitment'),
-              vocabTopic("  Apply and \nInterviewing", 'interview'),
-              vocabTopic("  Hiring and \n    Training", 'training'),
-              vocabTopic("  Salaries &\n    Benefit", 'salary'),
-              vocabTopic("  Promotion &\n     Awards", 'promotion'),
-              vocabTopic("Shopping", 'shopping'),
-              // vocabTopic("Ordering Supplies", 'order'),
-              // vocabTopic("Shipping", 'shipping'),
-              // vocabTopic("Invoices", 'invoice'),
-              // vocabTopic("Inventory", 'inventory'),
-              // vocabTopic(),
-              // vocabTopic(),
-            ],
-          ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: Text('CHỦ ĐỀ',
+                  style: GoogleFonts.openSans(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white)),
+            ),
+            Expanded(
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: GridView.count(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    children: [
+                      vocabTopic("Contract", "contract"),
+                      vocabTopic("Marketing", 'marketing'),
+                      vocabTopic("Warranty", 'warranty'),
+                      vocabTopic("Business Planning", 'business'),
+                      vocabTopic("Conferences", 'conference'),
+                      vocabTopic("Computerthe Internet", 'computer'),
+                      vocabTopic("Office Technology", 'office'),
+                      vocabTopic("Office Procedure", 'procedure'),
+                      vocabTopic("Electronics", 'electronic'),
+                      vocabTopic("Correspondence", 'correspondence'),
+                      vocabTopic("Job Ads & Recruitment", 'recruitment'),
+                      vocabTopic("Apply and Interviewing", 'interview'),
+                      vocabTopic("Hiring and Training", 'training'),
+                      vocabTopic("Salaries & Benefit", 'salary'),
+                      vocabTopic("Promotion & Awards", 'promotion'),
+                      vocabTopic("Shopping", 'shopping'),
+                      // vocabTopic("Ordering Supplies", 'order'),
+                      // vocabTopic("Shipping", 'shipping'),
+                      // vocabTopic("Invoices", 'invoice'),
+                      // vocabTopic("Inventory", 'inventory'),
+                      // vocabTopic(),
+                      // vocabTopic(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
