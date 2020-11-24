@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/constants/theme_data.dart';
 import 'package:quiz_app/screens/certain_vocab_page.dart';
 
-class VocaBularyPage extends StatefulWidget {
+class TopicPage extends StatefulWidget {
   @override
-  _VocaBularyPageState createState() => _VocaBularyPageState();
+  _TopicPageState createState() => _TopicPageState();
 }
 
-class _VocaBularyPageState extends State<VocaBularyPage> {
+class _TopicPageState extends State<TopicPage> {
   vocabTopic(String title, String path) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),

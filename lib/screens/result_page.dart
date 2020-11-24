@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/constants/theme_data.dart';
-import 'package:quiz_app/screens/home_page.dart';
 
 class ResultPage extends StatelessWidget {
   final int score;
@@ -39,8 +38,7 @@ class ResultPage extends StatelessWidget {
                 color: Colors.green, borderRadius: BorderRadius.circular(15)),
             child: FlatButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                  Navigator.popUntil(context, ModalRoute.withName('/home'));
                 },
                 child: Text('HOME',
                     style: GoogleFonts.openSans(

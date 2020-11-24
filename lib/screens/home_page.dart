@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/constants/theme_data.dart';
 import 'package:quiz_app/screens/choose_test.dart';
-import 'package:quiz_app/screens/quiz_page.dart';
-import 'package:quiz_app/screens/vocabulary_page.dart';
+import 'package:quiz_app/screens/topic_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,8 +17,8 @@ class _HomePageState extends State<HomePage> {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => ChooseTest()));
         } else if (title == 'TOEIC VOCABULARY') {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => VocaBularyPage()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => TopicPage()));
         }
       },
       child: Material(
@@ -60,24 +59,40 @@ class _HomePageState extends State<HomePage> {
             expandedHeight: 300,
             floating: false,
             pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text('TOEIC TRAINING'),
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    CustomColor.backgroundTest,
+                    Colors.black,
+                  ],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                ),
+              ),
+              child: FlexibleSpaceBar(
+                centerTitle: true,
+                title: Text('TOEIC TRAINING'),
+              ),
             ),
           ),
           SliverFillRemaining(
-            child: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
-                child: GridView.count(
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                  crossAxisCount: 2,
-                  children: [
-                    customCard('TOEIC READING', ''),
-                    //customCard('TOEIC LISTENING', ''),
-                    customCard('TOEIC VOCABULARY', ''),
-                    //customCard('REVISION', ''),
-                  ],
-                )),
+            child: Container(
+              decoration: BoxDecoration(color: Colors.grey[100]),
+              child: Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
+                  child: GridView.count(
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                    crossAxisCount: 2,
+                    children: [
+                      customCard('TOEIC READING', ''),
+                      //customCard('TOEIC LISTENING', ''),
+                      customCard('TOEIC VOCABULARY', ''),
+                      //customCard('REVISION', ''),
+                    ],
+                  )),
+            ),
           ),
         ],
       ),

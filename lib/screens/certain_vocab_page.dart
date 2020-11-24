@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts_improved/flutter_tts_improved.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/constants/theme_data.dart';
-import 'package:quiz_app/screens/home_page.dart';
-import 'package:quiz_app/screens/vocabulary_page.dart';
 
 class GetsJson extends StatelessWidget {
   final String category;
@@ -44,9 +42,17 @@ class CertainVocabPage extends StatefulWidget {
 class _CertainVocabPageState extends State<CertainVocabPage> {
   FlutterTtsImproved flutterTtsImproved = FlutterTtsImproved();
   int index = 0;
-  bool isActive = false;
+  bool isActive;
   String next = 'Next';
   String previous = 'Previous';
+
+  @override
+  void initState() {
+    super.initState();
+    flutterTtsImproved.setLanguage("en-US");
+    isActive = false;
+  }
+
   previousVocab() {
     if (index > 0) {
       index = index - 1;
@@ -54,8 +60,7 @@ class _CertainVocabPageState extends State<CertainVocabPage> {
       setState(() {});
     }
     if (index == -1) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => VocaBularyPage()));
+      Navigator.pop(context);
     }
   }
 
@@ -68,9 +73,15 @@ class _CertainVocabPageState extends State<CertainVocabPage> {
     }
     if (index == widget.myData.length) {
       //index = 0;
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => VocaBularyPage()));
+      Navigator.pop(context);
     }
+  }
+
+  speakText() {
+    flutterTtsImproved.speak(widget.myData[index]['word']);
+    setState(() {
+      isActive = !isActive;
+    });
   }
 
   @override
@@ -126,11 +137,7 @@ class _CertainVocabPageState extends State<CertainVocabPage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            setState(() {
-                              isActive = !isActive;
-                              flutterTtsImproved
-                                  .speak(widget.myData[index]['word']);
-                            });
+                            speakText();
                           },
                           child: Icon(
                             Icons.headset_rounded,
@@ -177,17 +184,19 @@ class _CertainVocabPageState extends State<CertainVocabPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                      color: index == 0 ? Colors.red : Colors.blue,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: FlatButton(
-                    onPressed: () {
-                      if (index == 0) {
-                        index = index - 1;
-                      }
-                      previousVocab();
-                    },
+                FlatButton(
+                  color: index == 0 ? Colors.red : Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  onPressed: () {
+                    if (index == 0) {
+                      index = index - 1;
+                    }
+                    previousVocab();
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(10),
                     child: Text(
                       index == 0 ? 'Topic' : "Previous",
                       style: GoogleFonts.openSans(
@@ -197,19 +206,21 @@ class _CertainVocabPageState extends State<CertainVocabPage> {
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: index == widget.myData.length - 1
-                          ? Colors.red
-                          : Colors.green,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: FlatButton(
-                    onPressed: () {
-                      if (index == widget.myData.length - 1) {
-                        index = index + 1;
-                      }
-                      nextVocab();
-                    },
+                FlatButton(
+                  color: index == widget.myData.length - 1
+                      ? Colors.red
+                      : Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  onPressed: () {
+                    if (index == widget.myData.length - 1) {
+                      index = index + 1;
+                    }
+                    nextVocab();
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(10),
                     child: Text(
                       index == widget.myData.length - 1 ? "Topic" : "Next",
                       style: GoogleFonts.openSans(
